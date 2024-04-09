@@ -1,0 +1,31 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<!doctype html>
+<html lang="he" dir="rtl">
+<br>
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body class >
+
+{% if request.user.groups.all.0.name == 'hosted' %}
+    <h1>אין לך הרשאה לצפות בדף זה</h1>
+{% else %}
+    <h1>טופס אירוח</h1>
+    <br>
+    <form method="POST" enctype="multipart/form-data" class = "aid_org">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-dark">שלח</button>
+    </form>
+    <br>
+    <br>
+{% endif %}
+
+{% endblock %}
