@@ -1,0 +1,39 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<!doctype html>
+<html lang="he" dir="rtl">
+
+    <html>
+<head>
+    <style>
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+
+
+    </style>
+</head>
+
+   <h1 class="font-weight-bold text-center"> עמוד תרומות </h1>
+  <h5 class="center-text" >תרמו לנו ועזרו לנו לעזור למשפחות!</h5>
+    <br>
+    <br>
+
+    <div class=" aid_org">
+    <form action="" method="POST">
+        {%csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-dark" value="שליחה">
+    </form>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
