@@ -1,0 +1,138 @@
+body {
+    background-color: lightblue;
+    text-align: right;
+
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.dot {
+    font-size: 30px; /* Adjust as needed */
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    direction: rtl;
+    direction: rtl;
+}
+
+.thumbnail {
+    width: 150px;
+    height: auto;
+    direction: rtl;
+}
+
+.navbar-nav .nav-link {
+    color: purple !important;
+
+}
+
+.navbar-nav .nav-link:hover {
+    color: black !important;
+}
+
+.myImage {
+    width: 300px;  /* adjust as needed */
+    height: 300px; /* adjust as needed */
+    direction: rtl;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    direction: rtl;
+
+}
+
+
+body{
+    background-color: #00f121f;
+    background-repeat-y: no-repeat;
+    background-size:cover;
+    background-size: 110%;
+    direction: rtl;
+    color: #000000;
+
+}
+
+body *{
+    direction: rtl;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+
+}
+
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+    margin: 0;
+
+}
+
+a, a:hover, a:visited{
+    color: #023cf4;
+    text-decoration: none;
+}
+
+.rtl-class {
+    direction: rtl;
+}
+
+
+.logo-frame {
+    display: inline-block;
+    background-color: black;
+    border-radius: 0px; /* adjust as needed */
+    padding: 4px; /* adjust as needed */
+}
+.logo-frame img {
+    display: block;
+}
+
+.org-image {
+    max-width: 20%;
+    height: auto;
+}
+
+
+
+
+.aid_orgs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+
+}
+
+
+
+.aid_org{
+    padding: 10px;
+    border: 1px solid #000000;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+
+.line {
+    border-color: #000000; /* black */
+}
+
+.form-control {
+    margin-bottom: 15px;  /* Adjust as needed */
+}
+
+
+
+
