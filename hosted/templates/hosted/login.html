@@ -1,0 +1,37 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<html>
+<head>
+    <style>
+        .center-screen {
+            display: flex;
+            justify-content: center;
+        }
+        .site-form {
+            margin: auto;
+        }
+        input[type=submit] {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <strong><h1 class="center-screen">התחברות</h1>
+    <br>
+    <h5 class="center-text" >הכנס שם משתמש וסיסמא בבקשה</h5> </strong>
+    <br>
+    <div class="center-screen">
+        <br>
+        <form class="site-form aid_org" action="{% url 'hosted:login' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="התחבר">
+        </form>
+
+
+    </div>
+</body>
+</html>
+{% endblock %}
