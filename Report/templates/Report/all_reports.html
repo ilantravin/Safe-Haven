@@ -1,0 +1,62 @@
+{% extends "base_layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<html>
+<br>
+
+<head>
+    <style>
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    .aid_org {
+        background-color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 class="font-weight-bold text-center"> דיווחים אחרונים </h1>
+<br>
+
+<h3 class="text-center mb-5"> משתמשים הוסיפו עד כה {{ reports.count }} דיווחים </h3>
+
+
+{% for report in reports %}
+<div class="row justify-content-center my-3 aid_org">
+    <div class="col-md-10">
+        <h5 class="text-muted">{{ report.date|date:'d/m/Y'|upper }}</h5>
+        <h2>{{ report.name }}</h2>
+        <p>{{ report.text|striptags}}</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'Report:deleteReport' report.id %}" class="btn btn-dark">טופל</a>
+        <br>
+        <br>
+        {% endif %}
+    </div>
+</div>
+
+{% endfor %}
+
+<br>
+<br>
+{% if user.is_authenticated %}
+<a role="button" href="{% url 'Report:createReport' %}" class="btn btn-warning">להוספת דיווח נוסף</a>
+{% endif %}
+<br>
+<br>
+{% endblock %}

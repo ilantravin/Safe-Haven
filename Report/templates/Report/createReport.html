@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
+
+
+    <!doctype html>
+<html lang="he" dir="rtl">
+<br>
+    <html>
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body class >
+
+    <h1>דיווח</h1>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+    {{ form.as_p }}
+
+        <button type="submit" class="btn btn-dark">דווח</button>
+    </form>
+    <br>
+    <br>
+
+ {% endblock %}
