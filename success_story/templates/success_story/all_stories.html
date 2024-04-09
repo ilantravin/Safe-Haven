@@ -1,0 +1,55 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<style>
+    .title {
+        padding: 0.3rem;
+        text-align: center;
+        box-shadow: 0 6px 7px #afe7dd;
+    }
+
+     .aid_org {
+         padding: 10px;
+         border: 2px solid black;
+         margin: 0 auto;
+         position: relative;
+         padding-bottom: 40px;
+         background-color: white;
+     }
+
+</style>
+
+<div class="container" class="rtl-class">
+    <br>
+    <br>
+
+    <h1 style="color:black;"><b>סיפורי הצלחה</b></h1>
+    <br>
+    <br>
+    <div class="list-group" class="rtl-class">
+        {% for story in stories %}
+            <div class="row justify-content-center my-3 aid_org" class="rtl-class" >
+                <div class="col-md-10">
+                    <h5 class="text-muted">{{ story.date|date:'d/m/Y'|upper }}</h5>
+                    <h4><b>{{ story.name }}</b></h4>
+                    <br>
+                    <b>{{ story.text }}</b>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <a role="button" href="{% url 'success_story:create_story' %}" class="btn btn-dark" style="color: turquoise;">שתף בסיפור שלך</a>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+
