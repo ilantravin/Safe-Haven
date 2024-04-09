@@ -30,23 +30,20 @@ How to run:
 git clone https://github.com/ilantravin/Safe-Haven.git
 
 Requirements:
-pip install asgiref
 
-pip install Django 
-  
-pip install django-filter  
-
-pip install Pillow 
-
-pip install pip
-
-pip install reportlab 
-
-pip install sqlparse
-
-pip install tzdata
-
-pip install xlwt
+pip install asgiref      
+pip install chardet       
+pip install Django        
+pip install django-filter 
+pip install grapheme     
+pip install hebrew        
+pip install pillow        
+pip install pip           
+pip install python-bidi   
+pip install reportlab     
+pip install six           
+pip install sqlparse      
+pip install xlwt          
 
 
 Create tables
