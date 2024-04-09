@@ -1,0 +1,43 @@
+{% extends 'base_layout.html' %}
+<html lang="he" dir="rtl">
+{% block content %}
+
+<h1 class="center-text"><b>עמותות סיוע</b></h1>
+<br>
+        <br>
+<style>
+.aid_org {
+         padding: 10px;
+         border: 2px solid black;
+         margin: 0 auto;
+         position: relative;
+         padding-bottom: 40px;
+         background-color: white;
+     }
+</style>
+
+<div class="aid_orgs center-text">
+    {% for aid_org in aid_org %}
+    <div class="aid_org">
+        <h2><a href="{% url 'aid_org:detail' aid_org.slug %}">{{aid_org.name}}</a></h2>
+        <br>
+        <a href="{% url 'aid_org:detail' aid_org.slug %}"> <!-- This will link to the detail page of the aid_org -->
+            <img class="thumbnail" src="{{ aid_org.thumb.url }}">
+            <br>
+        </a>
+        <br>
+        <p>{{aid_org.snippet}}</p>
+        <p>{{aid_org.date|date:"d F Y"}}</p>
+        <br>
+        <br>
+    </div>
+    {% endfor %}
+</div>
+
+
+ <br>
+<br>
+<br>
+
+
+{% endblock %}

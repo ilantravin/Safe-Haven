@@ -1,0 +1,33 @@
+{% extends 'base_layout.html' %}
+<html lang="he" dir="rtl">
+
+{% block content %}
+
+<style>
+.aid_org {
+         padding: 10px;
+         border: 2px solid black;
+         margin: 0 auto;
+         position: relative;
+         padding-bottom: 40px;
+         background-color: white;
+     }
+</style>
+
+<div class="article-detail center-content">
+    <div class="aid_org">
+        <h2>{{aid_org.name}}</h2>
+        <br>
+        <a href="{{ aid_org.website }}"> <!-- Assuming 'website' is the field in your model that contains the URL -->
+            <img src="{{ aid_org.thumb.url }}" class="org-image">
+            <br>
+
+        </a>
+        <br>
+        <p>{{aid_org.description}}</p>
+        <br>
+        <p>{{aid_org.date|date:"d F Y"}}</p>
+    </div>
+</div>
+{% endblock %}
+    
