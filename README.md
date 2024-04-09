@@ -34,7 +34,7 @@ Requirements:
 pip install asgiref      
 pip install chardet       
 pip install Django        
-pip install django-filter 
+pip install django-filter         
 pip install grapheme     
 pip install hebrew        
 pip install pillow        
