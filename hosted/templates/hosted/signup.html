@@ -1,0 +1,78 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<html>
+<head>
+    <style>
+        .center-screen {
+            display: flex;
+            justify-content: center;
+        }
+        .site-form {
+            margin: auto;
+            width: 50%; /* Adjust as needed */
+        }
+        input[type=submit] {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <strong><h1 class="center-screen">הרשמה</h1>
+        <br>
+
+    <h5 class="center-text" >הכנס שם משתמש, סיסמא ודואר אלקטרוני</h5> </strong>
+    <br>
+    <div class="center-screen center-text">
+        <br>
+        <form class="site-form aid_org" action="/hosted/signup/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.username.label_tag }} {{ form.username }}
+                <small id="usernameHelp" class="form-text text-muted">שם המשתמש צריך להכיל רק אותיות ומספרים.</small>
+                {% if form.username.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.username.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }} {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.email.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password1.label_tag }} {{ form.password1 }}
+                <small id="passwordHelp" class="form-text text-muted">הסיסמה צריכה להיות באורך של לפחות 8 תווים.</small>
+                {% if form.password1.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.password1.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password2.label_tag }} {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.password2.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.category.label_tag }} {{ form.category }}
+                {% if form.category.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.category.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <input type="submit" value="הירשם" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}
