@@ -1,0 +1,53 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <title>ברוכים הבאים ל- SafeHaven</title>
+        <br>
+        <style>
+            .banner-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 800px;  /* Adjust width as needed */
+        height: auto;
+            }
+            .aid_org {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .banner-image, .aid_org p {
+                align-self: center;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1></h1>
+
+
+       <img class="banner-image" src="{% static 'YAHAD.jpeg' %}" >
+        <br>
+        <br>
+
+        <!-- About Us Section -->
+        <div class="about-section ">
+            <h2 class = "center-text">אודותינו</h2>
+<br>
+            <p class="aid_org">ברוכים הבאים ל-SafeHaven, פרויקט חדשני שנועד לספק מקלט זמני ותמיכה למשפחות הנתקלות במשבר. בעולם שבו אסונות וחירום יכולים להתרחש בכל רגע, המשימה שלנו היא לאפשר מקום בטוח ותמיכה למי שזקוק להם ביותר.
+
+הפלטפורמה שלנו מחברת בין משפחות במצוקה לבין אנשים וארגונים עם לב גדול, המציעים מקום לינה, ציוד ותרומות. דרך שיתוף פעולה זה, אנו שואפים ליצור רשת תמיכה קהילתית שמובילה לחיזוק החוסן והביטחון של המשפחות הנפגעות.
+
+SafeHaven פועלת מתוך הבנה שהמשימה שלנו היא לא רק לספק מקלט פיזי, אלא גם לפעול למען שיקום התקווה והכוח למשפחות. אנו מתמקדים בשלוש קבוצות עיקריות: משפחות המחפשות מקום לינה ותמיכה, אנשים ומוסדות המציעים את המקום והמשאבים, ומתנדבים וארגונים התומכים במאמצים אלה.
+
+אנו מאמינים בחשיבות השיתוף ובחוזק הקהילה. דרך SafeHaven, כל אחד יכול לתרום, להיות חלק מהשינוי, ולהציע יד חמה למי שצריך. הצטרפו אלינו והיו חלק מהמשימה ליצור עולם טוב יותר ובטוח יותר לכולם. </p>
+        </div>
+    </body>
+{%  endblock  %}

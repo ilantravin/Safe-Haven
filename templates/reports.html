@@ -1,0 +1,71 @@
+{% extends "base_layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+    <br>
+    <br>
+
+    <div class="row"/>
+    <head>
+        <style>
+            h1 {
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            div {
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+
+    <br>
+    <br>
+    <br>
+<div>
+<br >
+    <h1 class="font-weight-bold text-center"> הפקת דו"חות </h1>
+<br>
+{% if user.is_superuser %}
+</div>
+    <div class="row  ">
+        <div class="col-md " >
+                <table class="table table-sm" ]>
+                    <tr >
+
+                    </tr>
+
+
+<tr>
+    <th class = "line">
+
+
+<h4><b>דו"ח מצב תרומות:  </b></h4>
+<a href="{% url 'Donations:export_pdf' %}" class="btn btn-secondary">ייצא באמצעות PDF</a> &#160
+<a href="{% url 'Donations:export_excel' %}" class="btn btn-success" >ייצא באמצעות excel</a> &#160
+
+        <h4><b>דו"ח מצב אירוחים פעילים:  </b></h4>
+<a href="{% url 'host:export_pdf' %}" class="btn btn-secondary">ייצא באמצעות PDF</a> &#160
+<a href="{% url 'host:export_excel' %}" class="btn btn-success" >ייצא באמצעות excel</a> &#160
+
+
+</th>
+
+
+            </table>
+        </div>
+
+</div>
+
+
+    {% endif %}
+{% endblock %}
