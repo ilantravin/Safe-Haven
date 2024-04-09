@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SafeHaven.iml" filepath="$PROJECT_DIR$/.idea/SafeHaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Safe-Haven.iml" filepath="$PROJECT_DIR$/.idea/Safe-Haven.iml" />
     </modules>
   </component>
 </project>
