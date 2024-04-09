@@ -1,0 +1,106 @@
+{% extends "base_layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<html>
+<br>
+
+<head>
+    <style>
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+     .host-image {
+        max-width: 600px;
+        max-height: 300px;
+    }
+     .description-box {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+    div {
+        text-align: center;
+    }
+
+    .aid_org {
+        background-color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 class="font-weight-bold text-center">  רשימת בתי אירוח </h1>
+<br>
+
+<h3 class="text-center mb-5"> משתמשים הוסיפו עד כה {{ hosts.count }} בתי אירוח </h3>
+
+
+<form method="GET">
+    <b>חיפוש מתקדם:</b>
+    <br>
+    {{ host_filter.form }}
+    <button class='btn btn-outline-dark' type="submit">חפש</button>
+</form>
+
+{% for host in hosts %}
+<div class="row justify-content-center my-3 aid_org position-relative">
+    <div class="col-md-10 d-flex flex-column flex-md-row">
+        <div class="d-flex flex-column align-items-start">
+            {% if host.thumb %}
+            <img class="host-image mb-3" src="{{ host.thumb.url }}" alt="Image of the property">
+            {% endif %}
+            <div class="description-box">
+                <p>תיאור הנכס:{{ host.description }}</p>
+            </div>
+        </div>
+        <div class="position-absolute" style="top: 0; right: -100px;">
+            {% if host.is_occupied %}
+            <p><span class="dot" style="color: red;">&#9679;</span> הנכס אוכלס</p>
+            {% else %}
+            <p><span class="dot" style="color: green;">&#9679;</span> פנוי לאירוח</p>
+            {% endif %}
+        </div>
+        <div>
+            <h5 class="text-muted">{{ host.date|date:'d/m/Y'|upper }}</h5>
+            <br>
+            <p>מקום אירוח #{{ forloop.counter }}</p>
+            <p>שם: {{ host.fullname }}</p>
+            <p>רחוב: {{host.street}}</p>
+            <p>עיר: {{ host.city }}</p>
+            <p>סוג בית: {{ host.housetype }}</p>
+            <p>מספר חדרים: {{ host.rooms }}</p>
+            <p>מספר מיטות: {{ host.beds }}</p>
+            <p>כשרות: {{ host.get_kosher_status }}</p>
+            <p>נייד: {{ host.phone }}</p>
+            <p>דוא"ל: {{ host.email }}</p>
+            {%  if request.user == host.user or request.user.is_superuser %}
+            <br>
+            <br>
+            <a href="{% url 'host:edit_host' host.id %}" class="btn btn-primary">ערוך</a>
+            <a href="{% url 'host:delete_host' host.id %}" class="btn btn-dark">מחק</a>
+            <br>
+            <br>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+<br>
+<br>
+{% if request.user == host.user or request.user.is_superuser %}
+<a role="button" href="{% url 'host:create_host' %}" class="btn btn-warning">לשיתוף אירוח חדש</a>
+{% endif %}
+<br>
+<br>
+{% endblock %}
