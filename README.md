@@ -12,14 +12,6 @@ Description:
 
 The project is part of a "Fundamentals in Software Engineering" course. We are group #4. This is a website for Hosting families in times of danger, and also for aid organizations that want to help.
 
-The website has three users:
-
-admin -
-
-host/donator -
-
-hosted family - 
-
 
 Environment:
 the code was devloped on pycharm, the framework is django 4.0.0, most of the code is python, but we have some html and css code. Database: SQlite3
