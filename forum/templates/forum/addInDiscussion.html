@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <style>
+          .add-forum{
+            border:4px solid black;
+            margin: 0 auto;
+            padding: 40px;
+            width: fit-content;
+        }
+    </style>
+
+</head>
+    {% if msg %}
+        <b>{{ msg }}</b>
+    {% endif %}
+<form class="add-forum" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="הגב">
+</form>
+{% endblock %}
