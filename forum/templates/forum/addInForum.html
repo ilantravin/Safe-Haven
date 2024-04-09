@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block content %}
+
+        <style>
+            .add-forum {
+                border: 4px solid black;
+                margin: 0 auto;
+                padding: 40px;
+                width: fit-content;
+            }
+        </style>
+
+
+
+
+
+    <div>
+    <form class="add-forum" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="שלח">
+    </form>
+        </div>
+{% endblock %}

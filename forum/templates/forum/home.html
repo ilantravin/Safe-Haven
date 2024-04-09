@@ -1,0 +1,75 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <style>
+        .box {
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+    </style>
+
+<center>
+
+
+
+<br>
+    <br>
+    <h1><b>בקשות: {{ count }} </b></h1> <br>
+
+    {% if user.is_authenticated and not user.is_superuser %}
+            <a role="button" href="{% url 'forum:addInDiscussion' %} " class="btn btn-dark">רוצה להגיב?</a>
+        {% elif user.is_superuser %}
+            <a role="button" href="{% url 'forum:addInForum' %} " class="btn btn-dark">בקשת תרומה חדשה</a>
+            <a role="button" href="{% url 'forum:addInDiscussion' %} " class="btn btn-dark">רוצה להגיב?</a>
+        {% else %}
+            <a role="button" href="{% url 'forum:addInForum' %} " class="btn btn-dark">בקשת תרומה חדשה</a>
+
+    {% endif %}
+</center>
+    <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+    <br>
+
+    {% for forum in forums %}
+        <div class="card box container">
+            <h3>{{ forum.topic }}</h3>
+            <p>{{ forum.description }}</p>
+
+
+            <p style="text-align:right"> מאת: {{ forum.name }} <br>
+                מייל - {{ forum.email }}</p>
+
+            <hr>
+
+            {% for discuss in discussions %}
+                {% for objs in discuss %}
+                    {% if objs.forum == forum %}
+                        <b> מאת: {{ objs.name }}  </b>
+                        <br>
+                        {{ objs.discuss }}
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <form method="POST">
+                {% csrf_token %}
+            </form>
+        </div>
+        <br>
+
+    {% endfor %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
+
+{% endblock %}
