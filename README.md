@@ -14,7 +14,7 @@ The project is part of a "Fundamentals in Software Engineering" course. We are g
 
 
 Environment:
-the code was devloped on pycharm, the framework is django 4.0.0, most of the code is python, but we have some html and css code. Database: SQlite3
+the code was devloped on pycharm, the framework is django , most of the code is python, but we have some html and css code. Database: SQlite3
 
 for windows:
 1. open terminal through pycharm
