@@ -30,7 +30,7 @@ def create_host(request):
         raise PermissionDenied  # or redirect to a different page
 
     if request.method == 'POST':
-        form = HostForm(request.POST)
+        form = HostForm(request.POST, request.FILES)  # Pass request.FILES to the form
         if form.is_valid():
             host = form.save(commit=False)
             host.user = request.user
